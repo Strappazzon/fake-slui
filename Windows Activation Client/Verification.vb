@@ -17,10 +17,15 @@
     Private Sub Verification_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         verificationBar.Maximum = 100
         verificationBar.Value = 0
-        'This will take a long time...
-        '5 seconds per step
-        Timer1.Interval = 5000
-        'Timer1.Interval = 50 'Testing
+
+        If productKey = "5T0PW-4ST1N-GURT1-M35C4-MM1NG" Then
+            Timer1.Interval = 100
+        Else
+            'This will take a long time...
+            'Timer1.Interval = 100 'Debug
+            Timer1.Interval = 5000
+        End If
+
         Timer1.Enabled = True
     End Sub
 
@@ -34,16 +39,20 @@
 
     Private Sub Timer1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
         If verificationBar.Value = verificationBar.Maximum Then
-            'When the progress bar reaches the maximum value disable the timer and show a connection error...
-            Timer1.Enabled = False
-            MessageBox.Show("An error occured while connecting to the activation server. Please try again later.",
-            "Connection error",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Error,
-            MessageBoxDefaultButton.Button1)
+            If productKey = "5T0PW-4ST1N-GURT1-M35C4-MM1NG" Then
+                Success.Show()
+            Else
+                'When the progress bar reaches the maximum value disable the timer and show a connection error...
+                Timer1.Enabled = False
+                MessageBox.Show("An error occured while connecting to the activation server. Please try again later.",
+                "Connection error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1)
 
-            '...then close the application
-            Application.Exit()
+                '...then close the application
+                Application.Exit()
+            End If
         Else
             'Increase the progress bar by 1 step
             verificationBar.Value = verificationBar.Value + 1

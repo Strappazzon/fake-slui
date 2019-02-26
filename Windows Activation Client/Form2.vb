@@ -42,16 +42,10 @@
             MessageBoxButtons.OK,
             MessageBoxIcon.Warning,
             MessageBoxDefaultButton.Button1)
-        ElseIf productKeyTextBox.Text = "5T0PW-4ST1N-GURT1-M35C4-MM1NG" Then 'Using this product key will result in a succefull Windows activation
-            Me.Enabled = False
-            Me.Cursor = Cursors.WaitCursor()
-            Threading.Thread.Sleep(3500)
-
-            'Hide the current form and show the "Activation was succefull" form
-            Me.Hide()
-            Success.Show()
         Else
-            'This will open a form that will pretend to check the Product Key online
+            'Store the typed product key
+            productKey = productKeyTextBox.Text.ToString()
+            'Open the form that will pretend to check the Product Key online
             Me.Hide()
             Verification.Show()
         End If
@@ -66,8 +60,8 @@
         ExecProcess.StartInfo.WorkingDirectory = Application.StartupPath
         ExecProcess.Start()
 
-        'Hide the application...
         Me.productKeyTextBox.Clear()
+        'Hide the application...
         Me.Hide()
         '...for 2 minutes (120000ms)
         Threading.Thread.Sleep(120000)
