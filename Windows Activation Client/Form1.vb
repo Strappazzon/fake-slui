@@ -22,10 +22,10 @@
         Shell("taskkill /F /IM explorer.exe")
 
         'Force kill processes tipically used by scammers
+        Dim procsToKill() As String = {"iexplore", "msinfo32", "mmc", "dxdiag", "msconfig", "cmd", "notepad", "syskey"}
         For Each p As Process In Process.GetProcesses
-            If p.ProcessName = "iexplore" Or p.ProcessName = "msinfo32" Or p.ProcessName = "mmc" Or p.ProcessName = "dxdiag" Or p.ProcessName = "msconfig" Or p.ProcessName = "taskmgr" Or p.ProcessName = "cmd" Or p.ProcessName = "notepad" Or p.ProcessName = "syskey" Then
+            If procsToKill.Contains(p.ProcessName) Then
                 p.Kill()
-                Exit For
             End If
         Next
     End Sub
@@ -54,27 +54,7 @@
     End Sub
 
     Private Sub skipBtn_Click(sender As Object, e As EventArgs) Handles skipBtn.Click
-        'Restart explorer and pretend the application is closed
-        Dim ExecProcess = New Process()
-        ExecProcess.StartInfo.UseShellExecute = True
-        ExecProcess.StartInfo.CreateNoWindow = True
-        ExecProcess.StartInfo.FileName = "C:\Windows\explorer.exe"
-        ExecProcess.StartInfo.WorkingDirectory = Application.StartupPath
-        ExecProcess.Start()
-
-        'Hide the application...
-        Me.Hide()
-        '...for 2 minutes (120000ms)
-        Threading.Thread.Sleep(120000)
-        'Threading.Thread.Sleep(2000) 'Testing
-        Shell("taskkill /F /IM explorer.exe")
-        For Each p As Process In Process.GetProcesses()
-            If p.ProcessName = "iexplore" Or p.ProcessName = "msinfo32" Or p.ProcessName = "mmc" Or p.ProcessName = "dxdiag" Or p.ProcessName = "msconfig" Or p.ProcessName = "taskmgr" Or p.ProcessName = "cmd" Or p.ProcessName = "notepad" Or p.ProcessName = "syskey" Then
-                p.Kill()
-            End If
-        Next
-        Me.activateBtn.Select()
-        Me.Show()
+        Application.Exit()
     End Sub
 
     Private Sub helpActivationLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles helpActivationLinkLabel.LinkClicked
@@ -88,65 +68,14 @@
     End Sub
 
     Private Sub cancelBtn_Click(sender As Object, e As EventArgs) Handles cancelBtn.Click
-        'Restart explorer and pretend the application is closed
-        Dim ExecProcess = New Process()
-        ExecProcess.StartInfo.UseShellExecute = True
-        ExecProcess.StartInfo.CreateNoWindow = True
-        ExecProcess.StartInfo.FileName = "C:\Windows\explorer.exe"
-        ExecProcess.StartInfo.WorkingDirectory = Application.StartupPath
-        ExecProcess.Start()
-
-        'Hide the application...
-        Me.Hide()
-        '...for 2 minutes (120000ms)
-        Threading.Thread.Sleep(120000)
-        'Threading.Thread.Sleep(2000) 'Testing
-        Shell("taskkill /F /IM explorer.exe")
-        For Each p As Process In Process.GetProcesses()
-            If p.ProcessName = "iexplore" Or p.ProcessName = "msinfo32" Or p.ProcessName = "mmc" Or p.ProcessName = "dxdiag" Or p.ProcessName = "msconfig" Or p.ProcessName = "taskmgr" Or p.ProcessName = "cmd" Or p.ProcessName = "notepad" Or p.ProcessName = "syskey" Or p.ProcessName = "iexplore" Then
-                p.Kill()
-            End If
-        Next
-        Me.Show()
+        Application.Exit()
     End Sub
 
     Private Sub Form1_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
-        'The user can't close the application
-        If e.CloseReason = CloseReason.UserClosing Then
-            e.Cancel = True
-
-            'Restart explorer and pretend the application is closed
-            Dim ExecProcess = New Process()
-            ExecProcess.StartInfo.UseShellExecute = True
-            ExecProcess.StartInfo.CreateNoWindow = True
-            ExecProcess.StartInfo.FileName = "C:\Windows\explorer.exe"
-            ExecProcess.StartInfo.WorkingDirectory = Application.StartupPath
-            ExecProcess.Start()
-
-            'Hide the application...
-            Me.Hide()
-            '...for 2 minutes (120000ms)
-            Threading.Thread.Sleep(120000)
-            'Threading.Thread.Sleep(2000) 'Testing
-
-            'Force kill the processes again and show the application
-            Shell("taskkill /F /IM explorer.exe")
-            For Each p As Process In Process.GetProcesses()
-                If p.ProcessName = "iexplore" Or p.ProcessName = "msinfo32" Or p.ProcessName = "mmc" Or p.ProcessName = "dxdiag" Or p.ProcessName = "msconfig" Or p.ProcessName = "taskmgr" Or p.ProcessName = "cmd" Or p.ProcessName = "notepad" Or p.ProcessName = "syskey" Or p.ProcessName = "iexplore" Then
-                    p.Kill()
-                End If
-            Next
-            Me.Show()
-        Else
-            'Restart explorer and close the application
-            Dim ExecProcess = New Process()
-            ExecProcess.StartInfo.UseShellExecute = True
-            ExecProcess.StartInfo.CreateNoWindow = True
-            ExecProcess.StartInfo.FileName = "C:\Windows\explorer.exe"
-            ExecProcess.StartInfo.WorkingDirectory = Application.StartupPath
-            ExecProcess.Start()
-
-            Application.Exit()
-        End If
+        Using startProc = New Process()
+            startProc.StartInfo.CreateNoWindow = True
+            startProc.StartInfo.FileName = "C:\Windows\explorer.exe"
+            startProc.Start()
+        End Using
     End Sub
 End Class

@@ -52,59 +52,10 @@
     End Sub
 
     Private Sub cancelBtn_Click(sender As Object, e As EventArgs) Handles cancelBtn.Click
-        'Restart explorer and pretend the application is closed
-        Dim ExecProcess = New Process()
-        ExecProcess.StartInfo.UseShellExecute = True
-        ExecProcess.StartInfo.CreateNoWindow = True
-        ExecProcess.StartInfo.FileName = "C:\Windows\explorer.exe"
-        ExecProcess.StartInfo.WorkingDirectory = Application.StartupPath
-        ExecProcess.Start()
-
-        Me.productKeyTextBox.Clear()
-        'Hide the application...
-        Me.Hide()
-        '...for 2 minutes (120000ms)
-        Threading.Thread.Sleep(120000)
-        'Threading.Thread.Sleep(2000) 'Testing
-        Shell("taskkill /F /IM explorer.exe")
-        For Each p As Process In Process.GetProcesses()
-            If p.ProcessName = "iexplore" Or p.ProcessName = "msinfo32" Or p.ProcessName = "mmc" Or p.ProcessName = "dxdiag" Or p.ProcessName = "msconfig" Or p.ProcessName = "taskmgr" Or p.ProcessName = "cmd" Or p.ProcessName = "notepad" Or p.ProcessName = "syskey" Or p.ProcessName = "iexplore" Then
-                p.Kill()
-            End If
-        Next
-        Form1.activateBtn.Select()
-        Form1.Show()
+        Application.Exit()
     End Sub
 
-    Private Sub Form2_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
-        'The user can't close the application
-        If e.CloseReason = CloseReason.UserClosing Then
-            e.Cancel = True
-
-            'Restart explorer and pretend the application is closed
-            Dim ExecProcess = New Process()
-            ExecProcess.StartInfo.UseShellExecute = True
-            ExecProcess.StartInfo.CreateNoWindow = True
-            ExecProcess.StartInfo.FileName = "C:\Windows\explorer.exe"
-            ExecProcess.StartInfo.WorkingDirectory = Application.StartupPath
-            ExecProcess.Start()
-
-            'Hide the application...
-            Me.productKeyTextBox.Clear()
-            Me.Hide()
-            '...for 2 minutes (120000ms)
-            Threading.Thread.Sleep(120000)
-            'Threading.Thread.Sleep(2000) 'Testing
-            Shell("taskkill /F /IM explorer.exe")
-            For Each p As Process In Process.GetProcesses()
-                If p.ProcessName = "iexplore" Or p.ProcessName = "msinfo32" Or p.ProcessName = "mmc" Or p.ProcessName = "dxdiag" Or p.ProcessName = "msconfig" Or p.ProcessName = "taskmgr" Or p.ProcessName = "cmd" Or p.ProcessName = "notepad" Or p.ProcessName = "syskey" Or p.ProcessName = "iexplore" Then
-                    p.Kill()
-                End If
-            Next
-            Form1.activateBtn.Select()
-            Form1.Show()
-        Else
-            Application.Exit()
-        End If
+    Private Sub Form2_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.Closing
+        Application.Exit()
     End Sub
 End Class

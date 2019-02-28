@@ -18,23 +18,21 @@
         verificationBar.Maximum = 100
         verificationBar.Value = 0
 
-        If productKey = "5T0PW-4ST1N-GURT1-M35C4-MM1NG" Then
+        If imDebugging = True Or productKey = "5T0PW-4ST1N-GURT1-M35C4-MM1NG" Then
             Timer1.Interval = 100
         Else
             'This will take a long time...
-            'Timer1.Interval = 100 'Debug
-            Timer1.Interval = 5000
+            Timer1.Interval = 3000
         End If
 
         Timer1.Enabled = True
     End Sub
 
     Private Sub cancelBtn_Click(sender As Object, e As EventArgs) Handles cancelBtn.Click
-        'Do nothing if it's the user that wants to close the application
-        Dim result As Integer = MessageBox.Show("Are you sure you want to cancel the verification process?", "Windows Activation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-        If result = DialogResult.Yes Or result = DialogResult.No Then
-            Return
-        End If
+        'Do nothing
+        MessageBox.Show("Are you sure you want to cancel the verification process?", "Windows Activation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+        Me.Cursor = Cursors.WaitCursor
+        cancelBtn.Enabled = False
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
@@ -59,13 +57,36 @@
         End If
     End Sub
 
-    Private Sub Verification_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
-        'The user can't close the application
-        If e.CloseReason = CloseReason.UserClosing Then
-            Dim result As Integer = MessageBox.Show("Are you sure you want to cancel the verification process?", "Windows Activation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-            If result = DialogResult.Yes Or result = DialogResult.No Then
-                e.Cancel = True
+    'https://stackoverflow.com/a/38311385
+    Private Const MF_BYPOSITION As Integer = &H400
+    Private Const MF_REMOVE As Integer = &H1000
+    Private Declare Auto Function GetSystemMenu Lib "user32.dll" (ByVal hWnd As IntPtr, ByVal bRevert As Integer) As IntPtr
+    Private Declare Auto Function GetMenuItemCount Lib "user32.dll" (ByVal hMenu As IntPtr) As Integer
+    Private Declare Function DrawMenuBar Lib "user32.dll" (ByVal hwnd As IntPtr) As Boolean
+    Private Declare Auto Function RemoveMenu Lib "user32.dll" (ByVal hMenu As IntPtr, ByVal nPosition As Integer, ByVal wFlags As Integer) As Integer
+
+    Public Sub DisableCloseButton(ByVal hwnd As IntPtr)
+        Dim hMenu As IntPtr, n As Integer
+        hMenu = GetSystemMenu(hwnd, 0)
+        If Not hMenu.Equals(IntPtr.Zero) Then
+            n = GetMenuItemCount(hMenu)
+            If n > 0 Then
+                RemoveMenu(hMenu, n - 1, MF_BYPOSITION Or MF_REMOVE)
+                RemoveMenu(hMenu, n - 2, MF_BYPOSITION Or MF_REMOVE)
+                DrawMenuBar(hwnd)
             End If
+        End If
+    End Sub
+
+    Private Sub Verification_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
+        'The Product Key must be verified
+        If e.CloseReason = CloseReason.UserClosing Then
+            MessageBox.Show("Are you sure you want to cancel the verification process?", "Windows Activation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            e.Cancel = True
+            Me.Cursor = Cursors.WaitCursor
+
+            'Disable the close button
+            DisableCloseButton(Handle)
         Else
             Application.Exit()
         End If
