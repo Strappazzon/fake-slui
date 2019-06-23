@@ -54,8 +54,6 @@ Kill **powershell.exe** (its window is invisible on purpose) to interrupt the sc
 
 ## Todo
 
-- ~~[ ] Suppress Task Manager when the program is hidden~~
-- ~~[ ] \(maybe) Reset forms position before hiding them instead of preventing them from being moved~~
 - [x] Verify the secret code as well, but take less time
 - [ ] Add a dash every five characters
 - [ ] Fix bottom panel weird positioning when using Windows classic theme
