@@ -2,7 +2,7 @@
 
 A fake Windows Activation pop-up programmed to waste scammers' time.
 
-![Preview](./images/slui.png)
+![Preview](./Preview.png)
 
 ## Running the program
 
