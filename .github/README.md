@@ -1,8 +1,12 @@
-# Fake Windows Activation Client
+<h1 align="center">
+  <br>
+  <img src="./Preview.png" alt="Fake Windows Activation Client"></a>
+  <br>
+  Fake Windows Activation Client
+  <br>
+</h1>
 
-A fake Windows Activation pop-up programmed to waste scammers' time.
-
-![Preview](./Preview.png)
+<h4 align="center">A fake Windows Activation pop-up programmed to waste scammers' time.</h4>
 
 ## Running the program
 
