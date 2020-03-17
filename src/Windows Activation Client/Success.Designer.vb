@@ -64,9 +64,9 @@ Partial Class Success
         Me.titleLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(189, Byte), Integer))
         Me.titleLabel.Location = New System.Drawing.Point(32, 32)
         Me.titleLabel.Name = "titleLabel"
-        Me.titleLabel.Size = New System.Drawing.Size(189, 23)
         Me.titleLabel.TabIndex = 6
-        Me.titleLabel.Text = "Activation was succefull"
+        Me.TitleLabel.Size = New System.Drawing.Size(199, 23)
+        Me.TitleLabel.Text = "Activation was successful"
         '
         'bottomPanel
         '
