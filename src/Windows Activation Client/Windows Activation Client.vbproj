@@ -128,7 +128,6 @@
     <Compile Include="Success.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Var.vb" />
     <Compile Include="Verification.Designer.vb">
       <DependentUpon>Verification.vb</DependentUpon>
     </Compile>

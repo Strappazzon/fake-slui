@@ -1,81 +1,59 @@
 ﻿Public Class Form1
-    Protected Overrides Sub WndProc(ByRef m As Message)
-        Const WM_SYSCOMMAND As Integer = &H112
-        Const SC_MOVE As Integer = &HF010
+    Private ReadOnly ProcsList() As String = {"explorer", "taskmgr", "iexplore", "msinfo32", "mmc", "dxdiag", "msconfig", "cmd", "notepad", "syskey"}
+    Private WithEvents ProcsTimer As New Timer()
 
-        Select Case m.Msg
-            Case WM_SYSCOMMAND
-                Dim command As Integer = m.WParam.ToInt32() And &HFFF0
-                If command = SC_MOVE Then
-                    Return
-                End If
-        End Select
-
-        MyBase.WndProc(m)
+    Private Sub ProcsTimer_Tick(sender As Object, e As EventArgs) Handles ProcsTimer.Tick
+        'Force kill processes tipically used by scammers, Windows Explorer and Task Manager
+        For Each Process As Process In Process.GetProcesses
+            If ProcsList.Contains(Process.ProcessName) Then
+                Process.Kill()
+            End If
+        Next
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        taskmgrTimer.Interval = 1000
-        taskmgrTimer.Start()
-
-        'Kill explorer as soon as the application is opened
+        'Kill Windows Explorer
         Shell("taskkill /F /IM explorer.exe")
 
-        'Force kill processes tipically used by scammers
-        Dim procsToKill() As String = {"iexplore", "msinfo32", "mmc", "dxdiag", "msconfig", "cmd", "notepad", "syskey"}
-        For Each p As Process In Process.GetProcesses
-            If procsToKill.Contains(p.ProcessName) Then
-                p.Kill()
-            End If
-        Next
-    End Sub
-
-    Private Sub taskmgrTimer_Tick(sender As Object, e As EventArgs) Handles taskmgrTimer.Tick
-        'Suppress the Task Manager
-        'Doesn't work in Windows 8.1 and superior
-        For Each p As Process In Process.GetProcesses
-            If p.ProcessName = "taskmgr" Then
-                p.Kill()
-                Exit For
-            End If
-        Next
-    End Sub
-
-    Private Sub activateBtn_Click(sender As Object, e As EventArgs) Handles activateBtn.Click
-        'Hide the current form and proceed to the next step
-        Me.Hide()
-        Form2.Show()
-    End Sub
-
-    Private Sub retypeBtn_Click(sender As Object, e As EventArgs) Handles retypeBtn.Click
-        'Hide the current form and proceed to the next step
-        Me.Hide()
-        Form2.Show()
-    End Sub
-
-    Private Sub skipBtn_Click(sender As Object, e As EventArgs) Handles skipBtn.Click
-        Application.Exit()
-    End Sub
-
-    Private Sub helpActivationLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles helpActivationLinkLabel.LinkClicked
-        Dim ActivationAddress As String = "https://support.microsoft.com/en-us/help/15083/windows-how-to-activate"
-        Process.Start(ActivationAddress)
-    End Sub
-
-    Private Sub privacyLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles privacyLinkLabel.LinkClicked
-        Dim PrivacyAddress As String = "https://privacy.microsoft.com/en-us/privacystatement"
-        Process.Start(PrivacyAddress)
-    End Sub
-
-    Private Sub cancelBtn_Click(sender As Object, e As EventArgs) Handles cancelBtn.Click
-        Application.Exit()
+        'Start timer that will check running processes
+        ProcsTimer.Interval = 500
+        ProcsTimer.Start()
     End Sub
 
     Private Sub Form1_Closing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
-        Using startProc = New Process()
-            startProc.StartInfo.CreateNoWindow = True
-            startProc.StartInfo.FileName = "C:\Windows\explorer.exe"
-            startProc.Start()
+        'Restart Explorer when closing fake-slui
+        Using StartProc As New Process()
+            StartProc.StartInfo.CreateNoWindow = True
+            StartProc.StartInfo.FileName = Environment.GetFolderPath(Environment.SpecialFolder.Windows) & "\explorer.exe"
+            StartProc.Start()
         End Using
+    End Sub
+
+    Private Sub ActivateBtn_Click(sender As Object, e As EventArgs) Handles ActivateBtn.Click
+        'Hide the current form and proceed to the next step
+        Hide()
+        Form2.Show()
+    End Sub
+
+    Private Sub RetypeBtn_Click(sender As Object, e As EventArgs) Handles RetypeBtn.Click
+        'Hide the current form and proceed to the next step
+        Hide()
+        Form2.Show()
+    End Sub
+
+    Private Sub SkipBtn_Click(sender As Object, e As EventArgs) Handles SkipBtn.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub HelpActivationLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles HelpActivationLinkLabel.LinkClicked
+        Process.Start("https://support.microsoft.com/en-us/help/15083/windows-how-to-activate")
+    End Sub
+
+    Private Sub PrivacyLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles PrivacyLinkLabel.LinkClicked
+        Process.Start("https://privacy.microsoft.com/en-us/privacystatement")
+    End Sub
+
+    Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
+        Application.Exit()
     End Sub
 End Class

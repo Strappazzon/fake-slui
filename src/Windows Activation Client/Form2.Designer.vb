@@ -23,173 +23,173 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
-        Me.cancelBtn = New System.Windows.Forms.Button()
-        Me.bottomPanel = New System.Windows.Forms.Panel()
-        Me.nextBtn = New System.Windows.Forms.Button()
-        Me.descLabel = New System.Windows.Forms.Label()
-        Me.titleLabel = New System.Windows.Forms.Label()
-        Me.productKeyHelpTitleLabel = New System.Windows.Forms.Label()
-        Me.productKeyHelpLabel = New System.Windows.Forms.Label()
-        Me.productKeyHelpLinkLabel = New System.Windows.Forms.LinkLabel()
-        Me.productKeyTextLabel = New System.Windows.Forms.Label()
-        Me.productKeyTextBox = New System.Windows.Forms.TextBox()
-        Me.privacyLinkLabel = New System.Windows.Forms.LinkLabel()
-        Me.helpActivationLinkLabel = New System.Windows.Forms.LinkLabel()
-        Me.bottomPanel.SuspendLayout()
+        Me.CancelBtn = New System.Windows.Forms.Button()
+        Me.BottomPanel = New System.Windows.Forms.Panel()
+        Me.NextBtn = New System.Windows.Forms.Button()
+        Me.DescriptionLabel = New System.Windows.Forms.Label()
+        Me.TitleLabel = New System.Windows.Forms.Label()
+        Me.ProductKeyHelpTitleLabel = New System.Windows.Forms.Label()
+        Me.ProductKeyHelpLabel = New System.Windows.Forms.Label()
+        Me.ProductKeyHelpLinkLabel = New System.Windows.Forms.LinkLabel()
+        Me.ProductKeyTextLabel = New System.Windows.Forms.Label()
+        Me.ProductKeyTextBox = New System.Windows.Forms.TextBox()
+        Me.PrivacyLinkLabel = New System.Windows.Forms.LinkLabel()
+        Me.HelpActivationLinkLabel = New System.Windows.Forms.LinkLabel()
+        Me.BottomPanel.SuspendLayout()
         Me.SuspendLayout()
         '
-        'cancelBtn
+        'CancelBtn
         '
-        Me.cancelBtn.BackColor = System.Drawing.SystemColors.Control
-        Me.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.cancelBtn.Location = New System.Drawing.Point(530, 8)
-        Me.cancelBtn.Name = "cancelBtn"
-        Me.cancelBtn.Size = New System.Drawing.Size(75, 23)
-        Me.cancelBtn.TabIndex = 2
-        Me.cancelBtn.Text = "Cancel"
-        Me.cancelBtn.UseVisualStyleBackColor = True
+        Me.CancelBtn.BackColor = System.Drawing.SystemColors.Control
+        Me.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.CancelBtn.Location = New System.Drawing.Point(530, 8)
+        Me.CancelBtn.Name = "CancelBtn"
+        Me.CancelBtn.Size = New System.Drawing.Size(75, 23)
+        Me.CancelBtn.TabIndex = 1
+        Me.CancelBtn.Text = "Cancel"
+        Me.CancelBtn.UseVisualStyleBackColor = True
         '
-        'bottomPanel
+        'BottomPanel
         '
-        Me.bottomPanel.BackColor = System.Drawing.SystemColors.Control
-        Me.bottomPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.bottomPanel.Controls.Add(Me.nextBtn)
-        Me.bottomPanel.Controls.Add(Me.cancelBtn)
-        Me.bottomPanel.Location = New System.Drawing.Point(-1, 472)
-        Me.bottomPanel.Name = "bottomPanel"
-        Me.bottomPanel.Size = New System.Drawing.Size(619, 42)
-        Me.bottomPanel.TabIndex = 1
+        Me.BottomPanel.BackColor = System.Drawing.SystemColors.Control
+        Me.BottomPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.BottomPanel.Controls.Add(Me.NextBtn)
+        Me.BottomPanel.Controls.Add(Me.CancelBtn)
+        Me.BottomPanel.Location = New System.Drawing.Point(-1, 472)
+        Me.BottomPanel.Name = "BottomPanel"
+        Me.BottomPanel.Size = New System.Drawing.Size(619, 42)
+        Me.BottomPanel.TabIndex = 9
         '
-        'nextBtn
+        'NextBtn
         '
-        Me.nextBtn.BackColor = System.Drawing.SystemColors.Control
-        Me.nextBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.nextBtn.Location = New System.Drawing.Point(449, 8)
-        Me.nextBtn.Name = "nextBtn"
-        Me.nextBtn.Size = New System.Drawing.Size(75, 23)
-        Me.nextBtn.TabIndex = 1
-        Me.nextBtn.Text = "Next"
-        Me.nextBtn.UseVisualStyleBackColor = True
+        Me.NextBtn.BackColor = System.Drawing.SystemColors.Control
+        Me.NextBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.NextBtn.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.NextBtn.Location = New System.Drawing.Point(449, 8)
+        Me.NextBtn.Name = "NextBtn"
+        Me.NextBtn.Size = New System.Drawing.Size(75, 23)
+        Me.NextBtn.TabIndex = 0
+        Me.NextBtn.Text = "Next"
+        Me.NextBtn.UseVisualStyleBackColor = True
         '
-        'descLabel
+        'DescriptionLabel
         '
-        Me.descLabel.AutoSize = True
-        Me.descLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.descLabel.Location = New System.Drawing.Point(32, 70)
-        Me.descLabel.Name = "descLabel"
-        Me.descLabel.Size = New System.Drawing.Size(487, 34)
-        Me.descLabel.TabIndex = 4
-        Me.descLabel.Text = "The Windows 7 product key can be found on the installation disc holder inside the" &
+        Me.DescriptionLabel.AutoSize = True
+        Me.DescriptionLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DescriptionLabel.Location = New System.Drawing.Point(32, 70)
+        Me.DescriptionLabel.Name = "DescriptionLabel"
+        Me.DescriptionLabel.Size = New System.Drawing.Size(487, 34)
+        Me.DescriptionLabel.TabIndex = 1
+        Me.DescriptionLabel.Text = "The Windows 7 product key can be found on the installation disc holder inside the" &
     "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Windows package. Activation will register the product key to this computer."
         '
-        'titleLabel
+        'TitleLabel
         '
-        Me.titleLabel.AutoSize = True
-        Me.titleLabel.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titleLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(189, Byte), Integer))
-        Me.titleLabel.Location = New System.Drawing.Point(32, 32)
-        Me.titleLabel.Name = "titleLabel"
-        Me.titleLabel.Size = New System.Drawing.Size(179, 23)
-        Me.titleLabel.TabIndex = 3
-        Me.titleLabel.Text = "Type your product key"
+        Me.TitleLabel.AutoSize = True
+        Me.TitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(189, Byte), Integer))
+        Me.TitleLabel.Location = New System.Drawing.Point(32, 32)
+        Me.TitleLabel.Name = "TitleLabel"
+        Me.TitleLabel.Size = New System.Drawing.Size(179, 23)
+        Me.TitleLabel.TabIndex = 0
+        Me.TitleLabel.Text = "Type your product key"
         '
-        'productKeyHelpTitleLabel
+        'ProductKeyHelpTitleLabel
         '
-        Me.productKeyHelpTitleLabel.AutoSize = True
-        Me.productKeyHelpTitleLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.productKeyHelpTitleLabel.Location = New System.Drawing.Point(32, 150)
-        Me.productKeyHelpTitleLabel.Name = "productKeyHelpTitleLabel"
-        Me.productKeyHelpTitleLabel.Size = New System.Drawing.Size(187, 17)
-        Me.productKeyHelpTitleLabel.TabIndex = 5
-        Me.productKeyHelpTitleLabel.Text = "The product key looks like this:"
+        Me.ProductKeyHelpTitleLabel.AutoSize = True
+        Me.ProductKeyHelpTitleLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProductKeyHelpTitleLabel.Location = New System.Drawing.Point(32, 150)
+        Me.ProductKeyHelpTitleLabel.Name = "ProductKeyHelpTitleLabel"
+        Me.ProductKeyHelpTitleLabel.Size = New System.Drawing.Size(187, 17)
+        Me.ProductKeyHelpTitleLabel.TabIndex = 2
+        Me.ProductKeyHelpTitleLabel.Text = "The product key looks like this:"
         '
-        'productKeyHelpLabel
+        'ProductKeyHelpLabel
         '
-        Me.productKeyHelpLabel.AutoSize = True
-        Me.productKeyHelpLabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.productKeyHelpLabel.Location = New System.Drawing.Point(62, 190)
-        Me.productKeyHelpLabel.Name = "productKeyHelpLabel"
-        Me.productKeyHelpLabel.Size = New System.Drawing.Size(392, 20)
-        Me.productKeyHelpLabel.TabIndex = 6
-        Me.productKeyHelpLabel.Text = "PRODUCT KEY: XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+        Me.ProductKeyHelpLabel.AutoSize = True
+        Me.ProductKeyHelpLabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProductKeyHelpLabel.Location = New System.Drawing.Point(62, 190)
+        Me.ProductKeyHelpLabel.Name = "ProductKeyHelpLabel"
+        Me.ProductKeyHelpLabel.Size = New System.Drawing.Size(392, 20)
+        Me.ProductKeyHelpLabel.TabIndex = 3
+        Me.ProductKeyHelpLabel.Text = "PRODUCT KEY: XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
         '
-        'productKeyHelpLinkLabel
+        'ProductKeyHelpLinkLabel
         '
-        Me.productKeyHelpLinkLabel.AutoSize = True
-        Me.productKeyHelpLinkLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.productKeyHelpLinkLabel.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.productKeyHelpLinkLabel.Location = New System.Drawing.Point(32, 230)
-        Me.productKeyHelpLinkLabel.Name = "productKeyHelpLinkLabel"
-        Me.productKeyHelpLinkLabel.Size = New System.Drawing.Size(256, 17)
-        Me.productKeyHelpLinkLabel.TabIndex = 7
-        Me.productKeyHelpLinkLabel.TabStop = True
-        Me.productKeyHelpLinkLabel.Text = "Where do I find my Windows product key?"
+        Me.ProductKeyHelpLinkLabel.AutoSize = True
+        Me.ProductKeyHelpLinkLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProductKeyHelpLinkLabel.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.ProductKeyHelpLinkLabel.Location = New System.Drawing.Point(32, 230)
+        Me.ProductKeyHelpLinkLabel.Name = "ProductKeyHelpLinkLabel"
+        Me.ProductKeyHelpLinkLabel.Size = New System.Drawing.Size(256, 17)
+        Me.ProductKeyHelpLinkLabel.TabIndex = 4
+        Me.ProductKeyHelpLinkLabel.TabStop = True
+        Me.ProductKeyHelpLinkLabel.Text = "Where do I find my Windows product key?"
         '
-        'productKeyTextLabel
+        'ProductKeyTextLabel
         '
-        Me.productKeyTextLabel.AutoSize = True
-        Me.productKeyTextLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.productKeyTextLabel.Location = New System.Drawing.Point(32, 290)
-        Me.productKeyTextLabel.Name = "productKeyTextLabel"
-        Me.productKeyTextLabel.Size = New System.Drawing.Size(81, 17)
-        Me.productKeyTextLabel.TabIndex = 8
-        Me.productKeyTextLabel.Text = "Product Key:"
+        Me.ProductKeyTextLabel.AutoSize = True
+        Me.ProductKeyTextLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProductKeyTextLabel.Location = New System.Drawing.Point(32, 290)
+        Me.ProductKeyTextLabel.Name = "ProductKeyTextLabel"
+        Me.ProductKeyTextLabel.Size = New System.Drawing.Size(81, 17)
+        Me.ProductKeyTextLabel.TabIndex = 5
+        Me.ProductKeyTextLabel.Text = "Product Key:"
         '
-        'productKeyTextBox
+        'ProductKeyTextBox
         '
-        Me.productKeyTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.productKeyTextBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.productKeyTextBox.Location = New System.Drawing.Point(155, 287)
-        Me.productKeyTextBox.MaxLength = 29
-        Me.productKeyTextBox.Name = "productKeyTextBox"
-        Me.productKeyTextBox.Size = New System.Drawing.Size(332, 25)
-        Me.productKeyTextBox.TabIndex = 0
-        Me.productKeyTextBox.WordWrap = False
+        Me.ProductKeyTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.ProductKeyTextBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProductKeyTextBox.Location = New System.Drawing.Point(155, 287)
+        Me.ProductKeyTextBox.MaxLength = 29
+        Me.ProductKeyTextBox.Name = "ProductKeyTextBox"
+        Me.ProductKeyTextBox.Size = New System.Drawing.Size(332, 25)
+        Me.ProductKeyTextBox.TabIndex = 6
+        Me.ProductKeyTextBox.WordWrap = False
         '
-        'privacyLinkLabel
+        'PrivacyLinkLabel
         '
-        Me.privacyLinkLabel.AutoSize = True
-        Me.privacyLinkLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.privacyLinkLabel.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.privacyLinkLabel.Location = New System.Drawing.Point(32, 415)
-        Me.privacyLinkLabel.Name = "privacyLinkLabel"
-        Me.privacyLinkLabel.Size = New System.Drawing.Size(205, 17)
-        Me.privacyLinkLabel.TabIndex = 10
-        Me.privacyLinkLabel.TabStop = True
-        Me.privacyLinkLabel.Text = "Read the privacy statement online"
+        Me.PrivacyLinkLabel.AutoSize = True
+        Me.PrivacyLinkLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PrivacyLinkLabel.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.PrivacyLinkLabel.Location = New System.Drawing.Point(32, 415)
+        Me.PrivacyLinkLabel.Name = "PrivacyLinkLabel"
+        Me.PrivacyLinkLabel.Size = New System.Drawing.Size(205, 17)
+        Me.PrivacyLinkLabel.TabIndex = 8
+        Me.PrivacyLinkLabel.TabStop = True
+        Me.PrivacyLinkLabel.Text = "Read the privacy statement online"
         '
-        'helpActivationLinkLabel
+        'HelpActivationLinkLabel
         '
-        Me.helpActivationLinkLabel.AutoSize = True
-        Me.helpActivationLinkLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.helpActivationLinkLabel.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.helpActivationLinkLabel.Location = New System.Drawing.Point(32, 395)
-        Me.helpActivationLinkLabel.Name = "helpActivationLinkLabel"
-        Me.helpActivationLinkLabel.Size = New System.Drawing.Size(116, 17)
-        Me.helpActivationLinkLabel.TabIndex = 11
-        Me.helpActivationLinkLabel.TabStop = True
-        Me.helpActivationLinkLabel.Text = "What is activation?"
+        Me.HelpActivationLinkLabel.AutoSize = True
+        Me.HelpActivationLinkLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HelpActivationLinkLabel.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.HelpActivationLinkLabel.Location = New System.Drawing.Point(32, 395)
+        Me.HelpActivationLinkLabel.Name = "HelpActivationLinkLabel"
+        Me.HelpActivationLinkLabel.Size = New System.Drawing.Size(116, 17)
+        Me.HelpActivationLinkLabel.TabIndex = 7
+        Me.HelpActivationLinkLabel.TabStop = True
+        Me.HelpActivationLinkLabel.Text = "What is activation?"
         '
         'Form2
         '
-        Me.AcceptButton = Me.nextBtn
+        Me.AcceptButton = Me.NextBtn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CancelButton = Me.cancelBtn
+        Me.CancelButton = Me.CancelBtn
         Me.ClientSize = New System.Drawing.Size(617, 512)
-        Me.Controls.Add(Me.helpActivationLinkLabel)
-        Me.Controls.Add(Me.privacyLinkLabel)
-        Me.Controls.Add(Me.productKeyTextBox)
-        Me.Controls.Add(Me.productKeyTextLabel)
-        Me.Controls.Add(Me.productKeyHelpLinkLabel)
-        Me.Controls.Add(Me.productKeyHelpLabel)
-        Me.Controls.Add(Me.productKeyHelpTitleLabel)
-        Me.Controls.Add(Me.descLabel)
-        Me.Controls.Add(Me.titleLabel)
-        Me.Controls.Add(Me.bottomPanel)
+        Me.Controls.Add(Me.HelpActivationLinkLabel)
+        Me.Controls.Add(Me.PrivacyLinkLabel)
+        Me.Controls.Add(Me.ProductKeyTextBox)
+        Me.Controls.Add(Me.ProductKeyTextLabel)
+        Me.Controls.Add(Me.ProductKeyHelpLinkLabel)
+        Me.Controls.Add(Me.ProductKeyHelpLabel)
+        Me.Controls.Add(Me.ProductKeyHelpTitleLabel)
+        Me.Controls.Add(Me.DescriptionLabel)
+        Me.Controls.Add(Me.TitleLabel)
+        Me.Controls.Add(Me.BottomPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -200,22 +200,22 @@ Partial Class Form2
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Windows Activation"
         Me.TopMost = True
-        Me.bottomPanel.ResumeLayout(False)
+        Me.BottomPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents cancelBtn As Button
-    Friend WithEvents bottomPanel As Panel
-    Friend WithEvents descLabel As Label
-    Friend WithEvents titleLabel As Label
-    Friend WithEvents productKeyHelpTitleLabel As Label
-    Friend WithEvents productKeyHelpLabel As Label
-    Friend WithEvents productKeyHelpLinkLabel As LinkLabel
-    Friend WithEvents productKeyTextLabel As Label
-    Friend WithEvents productKeyTextBox As TextBox
-    Friend WithEvents nextBtn As Button
-    Friend WithEvents privacyLinkLabel As LinkLabel
-    Friend WithEvents helpActivationLinkLabel As LinkLabel
+    Friend WithEvents CancelBtn As Button
+    Friend WithEvents BottomPanel As Panel
+    Friend WithEvents DescriptionLabel As Label
+    Friend WithEvents TitleLabel As Label
+    Friend WithEvents ProductKeyHelpTitleLabel As Label
+    Friend WithEvents ProductKeyHelpLabel As Label
+    Friend WithEvents ProductKeyHelpLinkLabel As LinkLabel
+    Friend WithEvents ProductKeyTextLabel As Label
+    Friend WithEvents ProductKeyTextBox As TextBox
+    Friend WithEvents NextBtn As Button
+    Friend WithEvents PrivacyLinkLabel As LinkLabel
+    Friend WithEvents HelpActivationLinkLabel As LinkLabel
 End Class
