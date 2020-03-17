@@ -4,15 +4,27 @@
     End Sub
 
     Private Sub ProductKeyHelpLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ProductKeyHelpLinkLabel.LinkClicked
-        Process.Start("https://support.microsoft.com/en-us/help/10749/windows-10-find-product-key")
+        Try
+            Process.Start("https://support.microsoft.com/en-us/help/10749/windows-10-find-product-key")
+        Catch
+            Return
+        End Try
     End Sub
 
     Private Sub HelpActivationLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles HelpActivationLinkLabel.LinkClicked
-        Process.Start("https://support.microsoft.com/en-us/help/15083/windows-how-to-activate")
+        Try
+            Process.Start("https://support.microsoft.com/en-us/help/15083/windows-how-to-activate")
+        Catch
+            Return
+        End Try
     End Sub
 
     Private Sub PrivacyLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles PrivacyLinkLabel.LinkClicked
-        Process.Start("https://privacy.microsoft.com/en-us/privacystatement")
+        Try
+            Process.Start("https://privacy.microsoft.com/en-us/privacystatement")
+        Catch
+            Return
+        End Try
     End Sub
 
     Private Sub NextBtn_Click(sender As Object, e As EventArgs) Handles NextBtn.Click
