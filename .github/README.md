@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="./Preview.png" alt="Fake Windows Activation Client"></a>
+  <img src="./Screenshot.png" alt="Fake Windows Activation Client">
   <br>
   Fake Windows Activation Client
   <br>
