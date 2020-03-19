@@ -29,5 +29,6 @@
 [Rr]es
 [Rr]esources
 *.ico
-
 !sppcc_1.ico
+
+/.release
