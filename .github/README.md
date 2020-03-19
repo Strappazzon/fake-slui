@@ -8,6 +8,12 @@
 
 <h4 align="center">A fake Windows Activation pop-up programmed to waste scammers' time.</h4>
 
+<p align="center">
+  <a href="#getting-started">Getting started</a> •
+  <a href="#settings">Settings</a> •
+  <a href="#download">Download</a>
+</p>
+
 ## Getting started
 
 1. Copy **slui.exe** and **INIFileParser.dll** wherever you want, `C:\Windows` for example.
