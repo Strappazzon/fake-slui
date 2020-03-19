@@ -1,15 +1,11 @@
 @echo off
-:variables
-:: Change this to where you keep KeepAlive.ps1
-set KeepAlive="C:\PATH\TO\KeepAlive.ps1"
-goto init
 :init
 net session >nul 2>&1
 if %errorLevel% == 0 (goto execute) else (goto error)
 goto init
 :execute
 powershell Set-ExecutionPolicy Unrestricted
-powershell -windowstyle hidden %KeepAlive%
+powershell -windowstyle hidden "C:\Path\To\KeepAlive.ps1"
 exit
 :error
 color 4F
